@@ -14,8 +14,8 @@ const BlogItem = (props) => {
               <img alt="blog" src={props.image}></img>
               <span className="card-title textColor">{props.title}</span>
             </div>
-            <div className="card-content">
-              <p>{props.description}</p>
+            <div className="card-content truncate">
+              {props.description}
             </div>
             <div className="card-action">
               <NavLink to={url} className="btn btn-small waves-effect waves-light">View post</NavLink>
