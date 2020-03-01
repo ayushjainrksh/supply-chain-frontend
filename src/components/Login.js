@@ -27,7 +27,7 @@ class Login extends Component {
         }
         console.log(user);
 
-    axios.post('http://localhost:5000/login', null, {
+    axios.post('https://supplyc.herokuapp.com/login', null, {
         params: user,
         headers: {
             'Access-Control-Allow-Origin': '*',

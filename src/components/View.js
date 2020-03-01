@@ -47,7 +47,7 @@ class View extends Component {
         }
         console.log(comment);
 
-        axios.post('http://localhost:5000/blogs/'+this.props.match.params.id, null, {params: comment})
+        axios.post('https://supplyc.herokuapp.com/blogs/'+this.props.match.params.id, null, {params: comment})
         .then(res => {
             // console.log(res);
             this.setState({text: ""})
@@ -57,7 +57,7 @@ class View extends Component {
     }
       
     componentDidMount() {
-        axios.get('http://localhost:5000/blogs/'+this.props.match.params.id)
+        axios.get('https://supplyc.herokuapp.com/blogs/'+this.props.match.params.id)
       .then(res => {
         const data = res.data;
         // console.log(data);

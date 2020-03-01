@@ -37,7 +37,7 @@ class App extends Component {
   }
   
   getUser() {
-    axios.get('http://localhost:5000/isloggedin').then(response => {
+    axios.get('https://supplyc.herokuapp.com/isloggedin').then(response => {
       // console.log('Get user response: ')
       // console.log(response.data)
       if (response.data.user) {

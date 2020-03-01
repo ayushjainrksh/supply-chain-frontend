@@ -49,7 +49,7 @@ class Blogs extends Component {
 
     componentDidMount() {
 
-      axios.get('http://localhost:5000/blogs')
+      axios.get('https://supplyc.herokuapp.com/blogs')
       .then(res => {
         const data = res.data;
         // console.log(data);
