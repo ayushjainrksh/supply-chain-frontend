@@ -25,7 +25,7 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         }
-        console.log(user);
+        // console.log(user);
 
     axios.post('https://supplyc.herokuapp.com/login', null, {
         params: user,
