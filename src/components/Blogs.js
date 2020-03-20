@@ -91,7 +91,12 @@ class Blogs extends Component {
             <Route path='/blogs/:id' render = {(props) => <View {...props} username={this.props.username}/>}>
             </Route>
             <Route path={'/'}>
-              {blogs}
+              {this.state.blogs[0].title ?
+                blogs :
+                <div className="progress">
+                    <div className="indeterminate"></div>
+                </div>
+              }
             </Route>
           </Switch>
 

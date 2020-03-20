@@ -103,6 +103,7 @@ class View extends Component {
         const {text} = this.state;
         return(
             <div>
+                {this.state.title ?
                 <div className="row">
                     <div className="col s12 m8">
                         <div className="card large viewCard">
@@ -158,6 +159,11 @@ class View extends Component {
                         </div>
                     </div>
                 </div>
+                :
+                <div className="progress">
+                    <div className="indeterminate"></div>
+                </div>
+                }
             </div>
         )
     }
