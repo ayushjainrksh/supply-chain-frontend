@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import '../App.css'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
-  
+import M from "materialize-css/dist/js/materialize.min.js";
+
 class Blogs extends Component {
     constructor() {
       super();
@@ -18,6 +19,14 @@ class Blogs extends Component {
       this.handleSubmit = this.handleSubmit.bind(this); 
     }
 
+    componentDidMount = () => {
+      axios.get("https://source.unsplash.com/collection/11374518")
+      .then(res=> {
+        this.setState({image: res.request.responseURL});
+        M.updateTextFields();
+      })
+    }
+
     handleChange = e => {
       this.setState({[e.target.name] : e.target.value})
     }
@@ -30,7 +39,6 @@ class Blogs extends Component {
             image: this.state.image,
             username: this.props.username
         }
-        console.log(blog);
   
         axios.post('https://supplyc.herokuapp.com/', null, {params: blog})
         .then(res => {
@@ -58,13 +66,12 @@ class Blogs extends Component {
               <div className="row">
                 <div className="input-field col s12">
                   <input id="image" key="image" type="text" name="image" value={image} onChange={this.handleChange} required/>
-                <label htmlFor="title">Image URL</label>
+                <label class="active" htmlFor="image">Image URL</label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <textarea id="description" className="materialize-textarea" key="description" type="text" name="description" value={description} onChange={this.handleChange} required></textarea>
-                  {/* <input id="description" key="description" type="text" name="description" value={description} onChange={this.handleChange} required/> */}
                 <label htmlFor="descrption">Description</label>
                 </div>
               </div>
