@@ -21,7 +21,7 @@ const Date = (props) => {
 
 const BlogItem = (props) => {
     const url = "/blogs/"+props._id;
-    // console.log(url)
+
     return(
         <div className="col s12 m4">
           <div className="card small">

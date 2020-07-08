@@ -23,8 +23,6 @@ const CommentItem = (props) => {
             <strong>{props.author.substr(0, props.author.indexOf('@'))}</strong>
             <span id="comTime">
             <Date {...props}/>
-            {/* {props.time.substr(props.time.indexOf('T')+1,props.time.indexOf('.')-props.time.indexOf('T')-1)}<span> </span>
-            {props.time.substr(0, props.time.indexOf('T'))} */}
             </span>
             <div id="comText">{props.text}</div>
         </div>
@@ -65,10 +63,8 @@ class View extends Component {
 
         axios.post('https://supplyc.herokuapp.com/blogs/'+this.props.match.params.id, null, {params: comment})
         .then(res => {
-            // console.log(res);
             this.setState({text: ""})
             this.componentDidMount();
-            // console.log(res.data);
         })
     }
       
@@ -76,7 +72,6 @@ class View extends Component {
         axios.get('https://supplyc.herokuapp.com/blogs/'+this.props.match.params.id)
       .then(res => {
         const data = res.data;
-        // console.log(data);
         const comments = data.comments.map((com, ind) => {
             return {
                 text: com.text,

@@ -28,7 +28,6 @@ class Register extends Component {
             username: this.state.username,
             password: this.state.password
         }
-        // console.log(user);
 
         axios.post('https://supplyc.herokuapp.com/register', null, {params: user})
         .then(res => {

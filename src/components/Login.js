@@ -21,11 +21,9 @@ class Login extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const user = {
-            // name: this.state.name,
             username: this.state.username,
             password: this.state.password
         }
-        // console.log(user);
 
     axios.post('https://supplyc.herokuapp.com/login', null, {
         params: user,
@@ -50,7 +48,6 @@ class Login extends Component {
             }
         })
         .catch((err) => {
-            console.log("Failed to log in");
             console.log(err);
             this.setState({flag:2})
         })

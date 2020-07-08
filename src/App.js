@@ -4,9 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom'
 import M from "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.min.css";
-// import logo from './images/logo.png'
 import Navbar from './components/Navbar'
-// import Blogs from './components/Blogs'
 
 class App extends Component {
   constructor() {
@@ -38,16 +36,12 @@ class App extends Component {
   
   getUser() {
     axios.get('https://supplyc.herokuapp.com/isloggedin').then(response => {
-      // console.log('Get user response: ')
-      // console.log(response.data)
       if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
         this.setState({
           loggedIn: true,
           username: response.data.user.username
         })
       } else {
-        // console.log('Get user: no user');
         this.setState({
           loggedIn: false,
           username: null
