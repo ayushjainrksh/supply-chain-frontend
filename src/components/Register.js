@@ -31,7 +31,6 @@ class Register extends Component {
 
         axios.post('https://supplyc.herokuapp.com/register', null, {params: user})
         .then(res => {
-            console.log(res.status);
             if(res.status === 200)
             {
                 console.log("Account created");
@@ -43,7 +42,6 @@ class Register extends Component {
             }
         })
         .catch((err) => {
-            console.log(err)
             console.log("Failed to register!");
             this.setState({flag: 2});
         })

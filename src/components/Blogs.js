@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { NavLink, Route, Switch } from 'react-router-dom';
+import moment from 'moment';
 
 import View from "./View"
 
-const Date = (props) => {
-  let time = props.time.substr(props.time.indexOf('T')+1,props.time.indexOf('.')-props.time.indexOf('T')-1)
-  let date = props.time.substr(0, props.time.indexOf('T'))
-  
+const DateTime = (props) => {
+  let date = new Date(Date.parse(props.time)).toString()
+  date = date.split(' ')
+  let time = date[4];
+ 
   if(parseInt(time.substr(0,2)) < 12) 
-    time = time.substr(0,5)+"AM"
+    time = time.substr(0,5)+" AM"
   else
-    time = parseInt(time.substr(0,2))-12+time.substr(2,3)+"PM"
-
-  let dateArr = date.split("-")
-  let monthArr = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-  let month = monthArr[parseInt(dateArr[1])-1]
-  return <span>{month +" "+ parseInt(dateArr[2])+", "+ dateArr[0]}, {time}</span>
+    time = parseInt(time.substr(0,2))-12+time.substr(2,3)+" PM"
+  return <span>{date[1] +" "+ date[2] +", "+ date[3]}, {time}</span>
 }
 
 const BlogItem = (props) => {
@@ -36,7 +34,7 @@ const BlogItem = (props) => {
               <NavLink to={url} className="btn btn-small waves-effect waves-light">View post</NavLink>
               <div className="cardTime right">
                 <div><strong>{props.author.substr(0, props.author.indexOf('@'))}</strong></div>
-                <Date {...props}/>
+                <DateTime {...props}/>
               </div>
             </div>
           </div>
@@ -66,7 +64,6 @@ class Blogs extends Component {
       axios.get('https://supplyc.herokuapp.com/blogs')
       .then(res => {
         const data = res.data;
-        // console.log(data);
         const blogs = data.map((blg, ind) => {
           return {
             title: blg.title,

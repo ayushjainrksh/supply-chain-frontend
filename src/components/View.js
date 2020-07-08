@@ -2,27 +2,24 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import '../App.css'
 
-const Date = (props) => {
-    let time = props.time.substr(props.time.indexOf('T')+1,props.time.indexOf('.')-props.time.indexOf('T')-1)
-    let date = props.time.substr(0, props.time.indexOf('T'))
-    
+const DateTime = (props) => {
+    let date = new Date(Date.parse(props.time)).toString()
+    date = date.split(' ')
+    let time = date[4];
+   
     if(parseInt(time.substr(0,2)) < 12) 
-      time = time.substr(0,5)+"AM"
+      time = time.substr(0,5)+" AM"
     else
-      time = parseInt(time.substr(0,2))-12+time.substr(2,3)+"PM"
-  
-    let dateArr = date.split("-")
-    let monthArr = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-    let month = monthArr[parseInt(dateArr[1])-1]
-    return <span>{month +" "+ parseInt(dateArr[2])+", "+ dateArr[0]}, {time}</span>
-  }
+      time = parseInt(time.substr(0,2))-12+time.substr(2,3)+" PM"
+    return <span>{date[1] +" "+ date[2] +", "+ date[3]}, {time}</span>
+}
 
 const CommentItem = (props) => {
     return(
         <div className="card-panel comment">
             <strong>{props.author.substr(0, props.author.indexOf('@'))}</strong>
             <span id="comTime">
-            <Date {...props}/>
+            <DateTime {...props}/>
             </span>
             <div id="comText">{props.text}</div>
         </div>
@@ -59,7 +56,6 @@ class View extends Component {
             text: this.state.text,
             username: this.props.username
         }
-        console.log(comment);
 
         axios.post('https://supplyc.herokuapp.com/blogs/'+this.props.match.params.id, null, {params: comment})
         .then(res => {
@@ -111,7 +107,7 @@ class View extends Component {
                                 <div className="cardAuthor">
                                     <div><strong>{this.state.author.substr(0, this.state.author.indexOf('@'))}</strong></div>
                                     <div className="cardTime">
-                                        <Date {...this.state}/>
+                                        <DateTime {...this.state}/>
                                      </div>
                                 </div>
                             <div className="card-content">
