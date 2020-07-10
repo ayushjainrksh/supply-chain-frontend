@@ -121,7 +121,10 @@ class View extends Component {
                     <div className="col s12 m4">
                         <div className="row">
                             <div className="col s12">
-                                <h5>Comments</h5>
+                                <h5>
+                                  <i class="small material-icons left">insert_comment</i>
+                                  Comments
+                                </h5>
                             </div>
                             <form className="col s12" onSubmit={this.handleSubmit}>
                                 <div className="row">

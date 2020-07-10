@@ -20,7 +20,7 @@ const BlogItem = (props) => {
 
     return(
         <div className="col s12 m6 l4">
-          <div className="card small">
+          <div className="card small z-depth-3">
             <div className="card-image">
               <img alt="blog" src={props.image}></img>
               <span className="card-title textColor">{props.title}</span>

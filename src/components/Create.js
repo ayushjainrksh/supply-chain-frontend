@@ -73,7 +73,9 @@ class Blogs extends Component {
       else {
       return(
         <div className="create">
-          <h4>Create your blog!</h4>
+          <h4>Write a blog 
+            <i class="small material-icons left">create</i>
+          </h4>
           <div className="row">
             <form className="col s12" onSubmit={this.handleSubmit}>
               <div className="row">

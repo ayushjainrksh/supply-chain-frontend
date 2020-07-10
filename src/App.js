@@ -65,19 +65,43 @@ class App extends Component {
                     </div>
                     }
               </li>
-              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/">Home</NavLink></li>
-              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/about">About</NavLink></li>
+              <li>
+                <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/">
+                    <i class="large material-icons left">home</i>
+                    Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/about">
+                  <i class="large material-icons left">info_outline</i>
+                  About
+                </NavLink>
+              </li>
               {this.state.loggedIn && 
-              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/create">Create</NavLink></li>
+              <li>
+                <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/create">
+                  <i class="large material-icons left">create</i>
+                  Create
+                </NavLink>
+              </li>
               }
               {this.state.loggedIn && 
-              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/logout">Logout</NavLink></li>
+              <li>
+                <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/logout">
+                  <i class="large material-icons left">exit_to_app</i>
+                  Logout
+                </NavLink>
+              </li>
               }
               {!this.state.loggedIn &&
-              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/register">Register</NavLink></li>
+              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/register">
+                  <i class="large material-icons left">person_add</i>
+                Register</NavLink></li>
               }
               {!this.state.loggedIn &&       
-              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/login">Login</NavLink></li>
+              <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/login">
+                  <i class="large material-icons left">input</i>
+                Login</NavLink></li>
               }
             </ul>
             <ul id="slide-out" className="sidenav">
