@@ -31,6 +31,12 @@
   font-size: 1em;
 }
 
+#comText p {
+  padding: 0 !important;
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+}
+
 .cardTitle {
   margin: 1em 2em;
 }

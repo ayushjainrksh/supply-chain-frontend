@@ -17,12 +17,14 @@ const DateTime = (props) => {
 
 const CommentItem = (props) => {
     return(
-        <div className="card-panel comment">
+        <div className="card-panel z-depth-1 comment">
             <strong>{props.author.substr(0, props.author.indexOf('@'))}</strong>
             <span id="comTime">
             <DateTime {...props}/>
             </span>
-            <div id="comText">{props.text}</div>
+            <div id="comText">
+              <ReactMarkdown source={props.text} />
+            </div>
         </div>
     )
 }
