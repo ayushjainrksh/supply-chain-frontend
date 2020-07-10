@@ -101,3 +101,15 @@
   height: 700px;
   overflow-y: scroll;
 }
+
+.brand-logo {
+  font-family: monospace;
+}
+
+.page-footer {
+  padding-top: 0 !important;
+}
+
+.loading {
+  height: 79vh;
+}

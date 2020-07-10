@@ -88,8 +88,11 @@ class Blogs extends Component {
             <Route path={'/'}>
               {this.state.blogs[0].title ?
                 blogs :
-                <div className="progress">
+                <div>
+                  <div className="progress">
                     <div className="indeterminate"></div>
+                  </div>
+                  <div className="loading"></div>
                 </div>
               }
             </Route>

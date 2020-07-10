@@ -159,8 +159,11 @@ class View extends Component {
                     </div>
                 </div>
                 :
-                <div className="progress">
+                <div>
+                  <div className="progress">
                     <div className="indeterminate"></div>
+                  </div>
+                  <div className="loading"></div>
                 </div>
                 }
             </div>
