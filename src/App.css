@@ -3,7 +3,7 @@
 }
 
 .create {
-  width: 50%;
+  width: 80%;
   margin: 50px auto;
 }
 
@@ -74,4 +74,12 @@
 
 .aboutOuter {
   margin: 30px 5%;
+}
+
+.card.small {
+  height: 250px !important;
+}
+
+.card-image {
+  max-height: 70% !important;
 }

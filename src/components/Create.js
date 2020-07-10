@@ -3,7 +3,16 @@ import '../App.css'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
 import M from "materialize-css/dist/js/materialize.min.js";
+import MDEditor from '@uiw/react-md-editor';
 
+function TextArea() {
+  const [value, setValue] = React.useState("");
+  return (
+    <div>
+      <MDEditor height={200} value={value} onChange={setValue} />
+    </div>
+  );
+}
 class Blogs extends Component {
     constructor() {
       super();
@@ -16,7 +25,8 @@ class Blogs extends Component {
       }
   
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this); 
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleMD = this.handleMD.bind(this);
     }
 
     componentDidMount = () => {
@@ -28,7 +38,17 @@ class Blogs extends Component {
     }
 
     handleChange = e => {
+      const blog = {
+        title: this.state.title,
+        description: this.state.description,
+        image: this.state.image,
+        username: this.props.username
+    }
       this.setState({[e.target.name] : e.target.value})
+    }
+
+    handleMD = desc => {
+      this.setState({"description": desc})
     }
   
     handleSubmit = e => {
@@ -39,7 +59,6 @@ class Blogs extends Component {
             image: this.state.image,
             username: this.props.username
         }
-  
         axios.post('https://supplyc.herokuapp.com/', null, {params: blog})
         .then(res => {
             this.setState({created: true});
@@ -71,8 +90,9 @@ class Blogs extends Component {
               </div>
               <div className="row">
                 <div className="input-field col s12">
-                  <textarea id="description" className="materialize-textarea" key="description" type="text" name="description" value={description} onChange={this.handleChange} required></textarea>
-                <label htmlFor="descrption">Description</label>
+                  <div className="teal-text">Description</div>
+                  <MDEditor height={200} value={description} onChange={this.handleMD} />
+                  {/* <textarea id="description" className="materialize-textarea" key="description" type="text" name="description" value={description} onChange={this.handleChange} required></textarea> */}
                 </div>
               </div>
               <div className="row">

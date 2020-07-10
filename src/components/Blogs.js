@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { NavLink, Route, Switch } from 'react-router-dom';
-
 import View from "./View"
 
 const DateTime = (props) => {
@@ -20,15 +19,15 @@ const BlogItem = (props) => {
     const url = "/blogs/"+props._id;
 
     return(
-        <div className="col s12 m4">
+        <div className="col s12 m6 l4">
           <div className="card small">
             <div className="card-image">
               <img alt="blog" src={props.image}></img>
               <span className="card-title textColor">{props.title}</span>
             </div>
-            <div className="card-content truncate">
-              {props.description}
-            </div>
+              {/* <div className="card-content truncate"> */}
+                {/* {props.description} */}
+              {/* </div> */}
             <div className="card-action">
               <NavLink to={url} className="btn btn-small waves-effect waves-light">View post</NavLink>
               <div className="cardTime right">
@@ -95,7 +94,6 @@ class Blogs extends Component {
               }
             </Route>
           </Switch>
-
         </div>
         )
     }

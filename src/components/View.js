@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactMarkdown from 'react-markdown'
 import axios from 'axios'
 import '../App.css'
 
@@ -111,7 +112,7 @@ class View extends Component {
                                      </div>
                                 </div>
                             <div className="card-content">
-                                {this.state.description}
+                                <ReactMarkdown source={this.state.description} />
                             </div>
                         </div>
                     </div>
