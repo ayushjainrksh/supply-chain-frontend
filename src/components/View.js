@@ -146,7 +146,9 @@ class View extends Component {
                                 </div>
                             </form>
                             <div className="col s12">
+                              <div className="scroll-bar">
                                 {comments}
+                              </div>
                             </div>
                         </div>
                     </div>

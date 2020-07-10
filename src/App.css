@@ -83,3 +83,8 @@
 .card-image {
   max-height: 70% !important;
 }
+
+.scroll-bar {
+  height: 700px;
+  overflow-y: scroll;
+}
