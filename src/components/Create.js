@@ -5,14 +5,14 @@ import { Redirect } from 'react-router-dom';
 import M from "materialize-css/dist/js/materialize.min.js";
 import MDEditor from '@uiw/react-md-editor';
 
-function TextArea() {
-  const [value, setValue] = React.useState("");
-  return (
-    <div>
-      <MDEditor height={200} value={value} onChange={setValue} />
-    </div>
-  );
-}
+// function TextArea() {
+//   const [value, setValue] = React.useState("");
+//   return (
+//     <div>
+//       <MDEditor height={200} value={value} onChange={setValue} />
+//     </div>
+//   );
+// }
 class Blogs extends Component {
     constructor() {
       super();
@@ -38,12 +38,6 @@ class Blogs extends Component {
     }
 
     handleChange = e => {
-      const blog = {
-        title: this.state.title,
-        description: this.state.description,
-        image: this.state.image,
-        username: this.props.username
-    }
       this.setState({[e.target.name] : e.target.value})
     }
 
