@@ -20,6 +20,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    localStorage.setItem('backendURL', 'http://ayushjainrksh-supply-chain.glitch.me');
+
     var elem = document.querySelector(".sidenav");
     //eslint-disable-next-line
     var instance = M.Sidenav.init(elem, {
@@ -27,7 +29,6 @@ class App extends Component {
         inDuration: 250
     });
 
-    localStorage.setItem('backendURL', 'https://ayushjainrksh-supply-chain.glitch.me')
     this.setState({loggedIn: localStorage.getItem('loggedIn'), username: localStorage.getItem('username')})
   }
   
@@ -68,20 +69,20 @@ class App extends Component {
               </li>
               <li>
                 <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/">
-                    <i class="large material-icons left">home</i>
+                    <i className="large material-icons left">home</i>
                     Home
                 </NavLink>
               </li>
               <li>
                 <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/about">
-                  <i class="large material-icons left">info_outline</i>
+                  <i className="large material-icons left">info_outline</i>
                   About
                 </NavLink>
               </li>
               {this.state.loggedIn && 
               <li>
                 <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/create">
-                  <i class="large material-icons left">create</i>
+                  <i className="large material-icons left">create</i>
                   Create
                 </NavLink>
               </li>
@@ -89,19 +90,19 @@ class App extends Component {
               {this.state.loggedIn && 
               <li>
                 <NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/logout">
-                  <i class="large material-icons left">exit_to_app</i>
+                  <i className="large material-icons left">exit_to_app</i>
                   Logout
                 </NavLink>
               </li>
               }
               {!this.state.loggedIn &&
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/register">
-                <i class="large material-icons left">person_add</i>
+                <i className="large material-icons left">person_add</i>
                 Register</NavLink></li>
               }
               {!this.state.loggedIn &&       
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/login">
-                <i class="large material-icons left">input</i>
+                <i className="large material-icons left">input</i>
                 Login</NavLink></li>
               }
             </ul>
@@ -115,29 +116,29 @@ class App extends Component {
                     }
               </li>
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/">
-                <i class="large material-icons left">home</i>
+                <i className="large material-icons left">home</i>
                 Home</NavLink></li>
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/about">
-                <i class="large material-icons left">info_outline</i>
+                <i className="large material-icons left">info_outline</i>
                 About</NavLink></li>
               {this.state.loggedIn && 
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/create">
-                <i class="large material-icons left">create</i>
+                <i className="large material-icons left">create</i>
                 Create</NavLink></li>
               }
               {this.state.loggedIn && 
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/logout">
-                <i class="large material-icons left">exit_to_app</i>
+                <i className="large material-icons left">exit_to_app</i>
                 Logout</NavLink></li>
               }
               {!this.state.loggedIn &&
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/register">
-                <i class="large material-icons left">person_add</i>
+                <i className="large material-icons left">person_add</i>
                 Register</NavLink></li>
               }
               {!this.state.loggedIn &&       
               <li><NavLink exact  activeStyle={{backgroundColor:"#008580"}} to="/login">
-                <i class="large material-icons left">input</i>
+                <i className="large material-icons left">input</i>
                 Login</NavLink></li>
               }
             </ul>
@@ -146,28 +147,28 @@ class App extends Component {
         </nav>
         <main><Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/></main>
 
-        <footer class="page-footer teal">
-          {/* <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <footer className="page-footer teal">
+          {/* <div className="container">
+            <div className="row">
+              <div className="col l6 s12">
+                <h5 className="white-text">Footer Content</h5>
+                <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
               </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
+              <div className="col l4 offset-l2 s12">
+                <h5 className="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
                 </ul>
               </div>
             </div>
           </div> */}
-          <div class="footer-copyright">
-            <div class="container white-text">
+          <div className="footer-copyright">
+            <div className="container white-text">
             Copyright © {new Date().getFullYear()}  Made with <span role="img" aria-label="Heart">❤️</span> by AJ
-            <a class="white-text right" href="https://ayushja.in" target="_blank" rel="noopener noreferrer">ayushja.in</a>
+            <a className="white-text right" href="https://ayushja.in" target="_blank" rel="noopener noreferrer">ayushja.in</a>
             </div>
           </div>
         </footer>

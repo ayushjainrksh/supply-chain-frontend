@@ -58,6 +58,7 @@ class Blogs extends Component {
     }
 
     componentDidMount() {
+      localStorage.setItem('backendURL', 'http://ayushjainrksh-supply-chain.glitch.me')
       axios.get(`${localStorage.getItem('backendURL')}/blogs`)
       .then(res => {
         const data = res.data;
