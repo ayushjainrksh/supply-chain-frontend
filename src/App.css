@@ -110,6 +110,17 @@
   padding-top: 0 !important;
 }
 
+main {
+  height: 88vh !important;
+  overflow-y: scroll;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
 .loading {
   height: 79vh;
 }

@@ -131,7 +131,7 @@ class App extends Component {
             <a href="#!" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           </div>
         </nav>
-        <div><Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/></div>
+        <main><Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username}/></main>
 
         <footer class="page-footer teal">
           {/* <div class="container">
