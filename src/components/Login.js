@@ -25,7 +25,7 @@ class Login extends Component {
             password: this.state.password
         }
 
-    axios.post('https://supplyc.herokuapp.com/login', null, {
+    axios.post(`${localStorage.getItem('backendURL')}/login`, null, {
         params: user,
         headers: {
             'Access-Control-Allow-Origin': '*',

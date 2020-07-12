@@ -27,6 +27,7 @@ class App extends Component {
         inDuration: 250
     });
 
+    localStorage.setItem('backendURL', 'https://ayushjainrksh-supply-chain.glitch.me')
     this.setState({loggedIn: localStorage.getItem('loggedIn'), username: localStorage.getItem('username')})
   }
   
@@ -35,7 +36,7 @@ class App extends Component {
   }
   
   getUser() {
-    axios.get('https://supplyc.herokuapp.com/isloggedin').then(response => {
+    axios.get(`${localStorage.getItem('backendURL')}/isloggedin`).then(response => {
       if (response.data.user) {
         this.setState({
           loggedIn: true,

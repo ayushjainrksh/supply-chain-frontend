@@ -53,7 +53,7 @@ class Blogs extends Component {
             image: this.state.image,
             username: this.props.username
         }
-        axios.post('https://supplyc.herokuapp.com/', null, {params: blog})
+        axios.post(`${localStorage.getItem('backendURL')}`, null, {params: blog})
         .then(res => {
             this.setState({created: true});
         })

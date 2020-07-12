@@ -29,7 +29,7 @@ class Register extends Component {
             password: this.state.password
         }
 
-        axios.post('https://supplyc.herokuapp.com/register', null, {params: user})
+        axios.post(`${localStorage.getItem('backendURL')}/register`, null, {params: user})
         .then(res => {
             if(res.status === 200)
             {

@@ -60,7 +60,7 @@ class View extends Component {
             username: this.props.username
         }
 
-        axios.post('https://supplyc.herokuapp.com/blogs/'+this.props.match.params.id, null, {params: comment})
+        axios.post(`${`${localStorage.getItem('backendURL')}/logout`}/blogs/`+this.props.match.params.id, null, {params: comment})
         .then(res => {
             this.setState({text: ""})
             this.componentDidMount();
@@ -68,8 +68,8 @@ class View extends Component {
     }
       
     componentDidMount() {
-        axios.get('https://supplyc.herokuapp.com/blogs/'+this.props.match.params.id)
-      .then(res => {
+        axios.get(`${localStorage.getItem('backendURL')}/blogs`+this.props.match.params.id)
+        .then(res => {
         const data = res.data;
         const comments = data.comments.map((com, ind) => {
             return {

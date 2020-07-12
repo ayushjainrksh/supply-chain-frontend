@@ -58,8 +58,7 @@ class Blogs extends Component {
     }
 
     componentDidMount() {
-
-      axios.get('https://supplyc.herokuapp.com/blogs')
+      axios.get(`${localStorage.getItem('backendURL')}/blogs`)
       .then(res => {
         const data = res.data;
         const blogs = data.map((blg, ind) => {
