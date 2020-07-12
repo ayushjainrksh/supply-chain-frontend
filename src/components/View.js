@@ -60,7 +60,7 @@ class View extends Component {
             username: this.props.username
         }
 
-        axios.post(`${`${localStorage.getItem('backendURL')}/logout`}/blogs/`+this.props.match.params.id, null, {params: comment})
+        axios.post(`${localStorage.getItem('backendURL')}/blogs/`+this.props.match.params.id, null, {params: comment})
         .then(res => {
             this.setState({text: ""})
             this.componentDidMount();
@@ -68,7 +68,7 @@ class View extends Component {
     }
       
     componentDidMount() {
-        axios.get(`${localStorage.getItem('backendURL')}/blogs`+this.props.match.params.id)
+        axios.get(`${localStorage.getItem('backendURL')}/blogs/`+this.props.match.params.id)
         .then(res => {
         const data = res.data;
         const comments = data.comments.map((com, ind) => {

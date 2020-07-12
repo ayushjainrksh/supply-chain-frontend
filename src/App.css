@@ -98,7 +98,7 @@
 }
 
 .scroll-bar {
-  height: 700px;
+  height: 60vh;
   overflow-y: scroll;
 }
 
@@ -116,6 +116,7 @@ main {
 }
 
 footer {
+  z-index: 1;
   position: absolute;
   width: 100%;
   bottom: 0;
