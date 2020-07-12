@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    localStorage.setItem('backendURL', 'http://ayushjainrksh-supply-chain.glitch.me');
+    localStorage.setItem('backendURL', 'https://ayushjainrksh-supply-chain.glitch.me');
 
     var elem = document.querySelector(".sidenav");
     //eslint-disable-next-line
