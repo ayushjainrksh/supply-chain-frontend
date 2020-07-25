@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    localStorage.setItem('backendURL', 'https://ayushjainrksh-supply-chain.glitch.me');
+    localStorage.setItem('backendURL', 'https://supplyc.herokuapp.com/');
 
     var elem = document.querySelector(".sidenav");
     //eslint-disable-next-line
